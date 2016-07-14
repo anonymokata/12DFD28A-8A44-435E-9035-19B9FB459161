@@ -15,7 +15,17 @@ code to new repository.
 	```
 
 4. answer the questions.
+
+	```
+		Enter the name of the organization. [name of your organization] : 
+		Enter the name of the user within anonymokata. [authorized github user]
+		Enter the name of the user within anonymokata. [authorized github user] :
+		Enter the name of the new repository. [this will be generated] :
+		Enter the GitHub URL to clone : [paste the candidate URL here]
+		Do you really want to anonymize this repo? [Y/n]: 
+	```
 5. you are done.
+
 
 ---
 
