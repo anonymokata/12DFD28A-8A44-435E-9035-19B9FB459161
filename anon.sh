@@ -1,7 +1,7 @@
 #!/bin/bash
 
-current_dir="$(dirname "$0")"
-source $current_dir/functions.sh
+CURRENT_DIR="$(dirname "$0")"
+source $CURRENT_DIR/functions.sh
 
 # determine name of organization 
 echo -n "Enter the name of the organization. [anonymokata] : "
@@ -18,17 +18,17 @@ echo ""
 # determine name of new repository
 UUID=$(uuidgen)
 echo -n "Enter the name of the new repository. ["$UUID"] : "
-read -a name
-name=${name:-$UUID}
+read -a NAME
+NAME=${NAME:-$UUID}
 echo ""
 
 # github repository
 echo -n "Enter the GitHub URL to clone : "
-read -a repository
-repository=${repository:-Q}
+read -a REPOSITORY
+REPOSITORY=${REPOSITORY:-Q}
 echo ""
 
-if [ ${repository[0]} = "Q" ] || [ ${repository[0]} = "q" ]; then
+if [ ${REPOSITORY[0]} = "Q" ] || [ ${REPOSITORY[0]} = "q" ]; then
   exit 0
 fi
 
