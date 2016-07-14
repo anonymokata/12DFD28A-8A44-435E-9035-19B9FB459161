@@ -1,5 +1,8 @@
 #!/bin/bash
 
+current_dir="$(dirname "$0")"
+source $current_dir/functions.sh
+
 # determine name of organization 
 echo -n "Enter the name of the organization. [anonymokata] : "
 read -a ORGANIZATION
@@ -19,8 +22,8 @@ read -a name
 name=${name:-$UUID}
 echo ""
 
-# clone repository
-echo -n "Enter the candidate repository URL to clone : "
+# github repository
+echo -n "Enter the GitHub URL to clone : "
 read -a repository
 repository=${repository:-Q}
 echo ""
@@ -28,20 +31,16 @@ echo ""
 if [ ${repository[0]} = "Q" ] || [ ${repository[0]} = "q" ]; then
   exit 0
 fi
-git clone $repository $name
-cd $name
 
-# create new repository in organization
-curl -u "$USER" https://api.github.com/orgs/$ORGANIZATION/repos -d '{"'"name"'":"'"$name"'"}'
+echo -n "Do you really want to anonymize this repo? [Y/n]: "
+read confirm
+confirm=${confirm:-Y}
+echo "$confirm"
 
-# scrub repository
-git filter-branch --env-filter '
-export GIT_AUTHOR_NAME="anonymous"
-export GIT_COMMITTER_NAME="anonymous"
-export GIT_AUTHOR_EMAIL="anonymous"
-export GIT_COMMITTER_EMAIL="anonymous"
-' -- --all
-
-# push new repository to organization
-git remote set-url origin https://github.com:/$ORGANIZATION/$name.git
-git push -u origin master
+if [ $confirm = "Y" ] || [ $confirm = "y" ]; then
+	clone_candidate_repository
+	create_new_org_repository
+	scrub_repo
+	push_new_repo_to_org
+    echo "complete."
+fi
