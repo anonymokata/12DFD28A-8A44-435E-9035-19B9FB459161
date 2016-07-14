@@ -14,7 +14,7 @@ code to new repository.
 		[anonymokata]/anon.sh
 	```
 
-4. answer the questions.
+4. answer these questions.
 
 	```
 		Enter the name of the organization. [name of your organization] : 
