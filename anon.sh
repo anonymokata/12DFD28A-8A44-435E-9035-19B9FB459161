@@ -32,15 +32,15 @@ if [ ${REPOSITORY[0]} = "Q" ] || [ ${REPOSITORY[0]} = "q" ]; then
   exit 0
 fi
 
-echo -n "Do you really want to anonymize this repo? [Y/n]: "
+echo -n "Do you want to anonymize this repo? [Y/n]: "
 read confirm
 confirm=${confirm:-Y}
 echo "$confirm"
-
+	
+clone_candidate_repository
+create_new_org_repository
 if [ $confirm = "Y" ] || [ $confirm = "y" ]; then
-	clone_candidate_repository
-	create_new_org_repository
 	scrub_repo
-	push_new_repo_to_org
-    echo "complete."
 fi
+push_new_repo_to_org
+echo "complete."
