@@ -4,7 +4,7 @@ USER=ddaugher
 ORGANIZATION=anonymokata
 
 curl -u "$USER" https://api.github.com/orgs/$ORGANIZATION/repos -d '{"'"name"'":"'"$1"'"}'
-git remote add origin https://github.com:/$ORGANIZATION/$1.git
+git remote set-url origin https://github.com:/$ORGANIZATION/$1.git
 git push -u origin master
 
 #git filter-branch --env-filter '
