@@ -6,14 +6,14 @@ This script will allow any github repository to be cloned, scrubbed (removing al
 username and email), creating new repository within organization account and pushing the 'cleaned'
 code to new repository.
 
-1. clone this repository. (this will be the 'anon' directory) - [anonymokata](https://github.com/ddaugher/anonymokata)
+1. clone this repository - [anonymokata](https://github.com/ddaugher/anonymokata)
 2. change directory, to the directory where you want to clone the candidate repository.
 3. execute the anonymizer script...
 
 	```
-		[anon directory]/anon.sh
+		[anonymokata]/anon.sh
 	```
-	
+
 4. answer the questions.
 5. you are done.
 
