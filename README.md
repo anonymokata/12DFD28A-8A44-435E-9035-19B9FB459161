@@ -4,7 +4,8 @@
 
 This script will allow any github repository to be cloned, scrubbed (removing all references to 
 username and email), creating new repository within organization account and pushing the 'cleaned'
-code to new repository.
+code to new repository.  Your user must have 'write' privileges to the organization account in order
+to push the 'scrubbed' repository to github.
 
 1. clone this repository - [anonymokata](https://github.com/ddaugher/anonymokata)
 2. change directory, to the directory where you want to clone the candidate repository.
@@ -24,8 +25,8 @@ code to new repository.
 		Enter the GitHub URL to clone : [paste the candidate URL here]
 		Do you really want to anonymize this repo? [Y/n]: 
 	```
-5. you are done.
-
+5. Enter host password for user 'github user':
+6. you are done.
 
 ---
 
